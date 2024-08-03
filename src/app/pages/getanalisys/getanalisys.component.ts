@@ -43,6 +43,7 @@ export class GetanalisysComponent {
         btnreq.classList.remove('disabled');
       }),
       catchError(err =>{
+        console.log(err);
         this.error = true;
         throw err;
       })  
