@@ -8,7 +8,7 @@ import { CallbackComponent } from './pages/callback/callback.component';
 export const routes: Routes = [
     {path: '', component: HomeComponent},
 
-    {path: 'GetAnalisys', component: GetanalisysComponent,canActivate: [authGuard]},
+    {path: 'GetAnalysis', component: GetanalisysComponent,canActivate: [authGuard]},
     {path: 'Login', component: LoginComponent},
     {path:'**',redirectTo:''}
 ];

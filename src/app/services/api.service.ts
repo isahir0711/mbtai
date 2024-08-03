@@ -14,6 +14,6 @@ export class ApiService {
   private backendurl = environment.backendurl;
 
   getAnalisys(username:string): Observable<Analisys> {
-    return this.httpClient.get<Analisys>(this.backendurl + '/analisys/' + username);
+    return this.httpClient.get<Analisys>(this.backendurl + '/analysis/' + username);
   }
 }
