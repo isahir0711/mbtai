@@ -28,7 +28,7 @@ export class HeroComponent {
           return;
         }
 
-        scroller.setAttribute("data-animated", "false");
+        scroller.setAttribute("data-animated", "true");
         const scrollerInner = scroller.querySelector(".scroller__inner");
         if (!scrollerInner) return;
         const scrollerContent = Array.from(scrollerInner.children);

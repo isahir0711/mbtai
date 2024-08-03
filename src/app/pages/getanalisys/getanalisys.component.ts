@@ -37,7 +37,6 @@ export class GetanalisysComponent {
 
     this.apiService.getAnalisys(username).pipe(
       map((analisys:Analisys) => {
-        console.log(analisys);
         this.analisys = analisys;
         this.loading = false;
         btnreq.disabled = false;
