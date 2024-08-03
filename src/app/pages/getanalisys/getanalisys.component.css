@@ -1,0 +1,58 @@
+.analisys{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    height: 100vh;
+    gap: 2rem;
+}
+
+
+.action{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 450px;
+    gap: .5rem;
+    width: 100%;
+}
+
+.userinput{
+    font-size: 1.1rem;
+    border-radius: 4px;
+    border: 3px solid #e7e7e7e8;
+    padding: 12px 8px;
+}
+
+.userinput:focus{
+    outline: none;
+    border: 3px solid #646464;
+}
+
+.analyze-btn{
+    padding: 12px 8px;
+    background: #833ab4;
+    background: linear-gradient(to right,
+            #833ab4, #fd1d1d, #fcb045);
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+.analyze-btn:hover{
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.analyze-btn:active{
+    transform: translateY(20%)
+}
+
+.disabled{
+    background: #e7e7e7e8;
+    color: #646464;
+    cursor: not-allowed;
+}

@@ -1,0 +1,14 @@
+<section class="analisys">
+    <div class="action">
+        <input id="username" class="userinput" type="text" placeholder="ingresa tu usuario..">
+        <button id="btnreq" (click)="getAnalysis()" class="analyze-btn">Analizar</button>
+    </div>
+
+    @if (analisys) {
+        <app-card [analisys]="analisys"></app-card>
+    }
+
+    @if(error){
+        <h2>woops algo salio mal</h2>
+    }
+</section>

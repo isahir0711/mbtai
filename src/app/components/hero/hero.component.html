@@ -1,0 +1,29 @@
+<section class="hero">
+    <article class="hero-message">
+        <h2 class="hero-title">
+            Tu <span class="gradient-text">Instagram</span> es un reflejo único de tu personalidad.
+        </h2>
+
+        <p class="hero-subtitle">
+            Introduce tu usuario y obtén un análisis de tu persona en base a tus posts!
+        </p>
+
+
+        <a routerLink="/GetAnalisys" class="btn">Obten tu analisis!</a>
+    </article>
+
+    <div class="scroller" data-direction="right" data-speed="slow">
+        <h2 style="text-align: center; margin-bottom: 1rem;">Analisis Recientes:</h2>
+        <div class="scroller__inner">
+            @if (examples.length > 1 ) {
+                @for (item of examples; track $index) {
+                    <app-card [analisys]="item"></app-card>
+                }
+            }
+            @else{
+                <h2 style="text-align: center;">Oh! Parece que no hay analisis aun.</h2>
+            }
+        </div>
+        
+    </div>
+</section>

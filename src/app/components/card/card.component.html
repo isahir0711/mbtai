@@ -1,0 +1,25 @@
+<article class="card" id="card-{{analisys.username}}">
+
+    <div class="header">
+        <div class="profile-info">
+            <h2 class="username">{{analisys.username}}</h2>
+            <a id="mbti-{{analisys.username}}" target="_blank" rel="noopener noreferrer"
+                href="https://www.16personalities.com/es/personalidad-{{analisys.mbti}}"
+                class="mbti">{{analisys.mbti}}</a>
+        </div>
+        <a href="https://www.instagram.com/{{analisys.username}}" target="_blank" rel="noopener noreferrer" class="ig">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ig-icon">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M4 4m0 4a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z" />
+                <path d="M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
+                <path d="M16.5 7.5l0 .01" />
+            </svg>
+        </a>
+    </div>
+
+    <div class="body">
+        <p class="description">{{analisys.description}}</p>
+    </div>
+
+</article>
