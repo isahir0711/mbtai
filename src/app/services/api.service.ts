@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { Observable } from 'rxjs';
-import { Analisys } from '../interfaces/analisys';
+import { AnalysisDTO } from '../interfaces/analisys';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ export class ApiService {
 
   private backendurl = environment.backendurl;
 
-  getAnalisys(username:string): Observable<Analisys> {
-    return this.httpClient.get<Analisys>(this.backendurl + '/analysis/' + username);
+  getAnalisys(username:string): Observable<AnalysisDTO> {
+    return this.httpClient.get<AnalysisDTO>(this.backendurl + '/analysis/' + username);
   }
 }

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { CardComponent } from "../card/card.component";
-import { examples } from '../../data/examples';
 import { RouterLink } from '@angular/router';
+import { SupabaseService } from '../../services/supabase.service';
+import { AnalysisDTO } from '../../interfaces/analisys';
 
 @Component({
   selector: 'app-hero',
@@ -11,36 +12,63 @@ import { RouterLink } from '@angular/router';
   styleUrl: './hero.component.css'
 })
 export class HeroComponent {
-  examples = examples;
+  examples:AnalysisDTO[] = [];
+
+  /**
+   *
+   */
+  constructor(private supaSerivce:SupabaseService) {
+
+  }
+
+  getLatest(){
+    this.supaSerivce.getLatestAnalysis().then(res=>{
+      for (let index = 0; index < res.length; index++) {
+        const element = res[index];
+        let temp = {
+          description: element.description,
+          mbti: element.mbti,
+          username: element.username,
+          profilePicUrl: ''
+        }
+        this.examples.push(temp);
+      };
+    });
+  }
 
   ngAfterViewInit(): void {
-    //Shot out to Kevin Powell for this scroll animation
+    this.getLatest();
+  }
+
+  ngOnInit(): void {
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      this.addAnimation();
+    }
+    
+  }
+
+  addAnimation() {
     const scrollers = document.querySelectorAll(".scroller");
 
-    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      addAnimation();
+    if(this.examples.length === 0){
+      return;
     }
 
-    function addAnimation() {
-      scrollers.forEach((scroller) => {
+    scrollers.forEach((scroller) => {
+      
 
-        if (examples.length === 0) {
-          return;
-        }
-
-        scroller.setAttribute("data-animated", "true");
-        const scrollerInner = scroller.querySelector(".scroller__inner");
-        if (!scrollerInner) return;
-        const scrollerContent = Array.from(scrollerInner.children);
-        scrollerContent.forEach((item) => {
-          const duplicatedItem: HTMLElement = item.cloneNode(true) as HTMLElement;
-          if (!duplicatedItem) return;
-          duplicatedItem.setAttribute("aria-hidden", "true");
-          scrollerInner.appendChild(duplicatedItem);
-        });
-
-
+      scroller.setAttribute("data-animated", "true");
+      const scrollerInner = scroller.querySelector(".scroller__inner");
+      if (!scrollerInner) return;
+      const scrollerContent = Array.from(scrollerInner.children);
+      scrollerContent.forEach((item) => {
+        const duplicatedItem: HTMLElement = item.cloneNode(true) as HTMLElement;
+        if (!duplicatedItem) return;
+        duplicatedItem.setAttribute("aria-hidden", "true");
+        scrollerInner.appendChild(duplicatedItem);
       });
-    }
+
+
+    });
   }
 }

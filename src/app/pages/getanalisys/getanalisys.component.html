@@ -5,7 +5,10 @@
     </div>
 
     @if (analisys) {
-        <app-card [analisys]="analisys"></app-card>
+        <div class="res">
+            <app-card [analisys]="analisys"></app-card>
+        <button (click)="saveAnalysis()" class="btn">Guardar..</button>
+        </div>
     }
 
     @if(error){

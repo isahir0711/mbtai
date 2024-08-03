@@ -56,3 +56,23 @@
     color: #646464;
     cursor: not-allowed;
 }
+.res{
+    display: flex;
+    flex-direction: column;
+}
+
+.btn {
+    margin-top: 24px;
+    padding: 8px 12px;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #333;
+}

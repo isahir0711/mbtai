@@ -1,4 +1,4 @@
-export interface Analisys {
+export interface AnalysisDTO {
     description: string;
     mbti: string;
     username: string;

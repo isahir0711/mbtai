@@ -1,6 +1,6 @@
-import { Analisys } from "../interfaces/analisys";
+import { AnalysisDTO } from "../interfaces/analisys";
 
-export const examples: Analisys[] = [
+export const examples: AnalysisDTO[] = [
     {
         description: `Eres un programador, te apasiona la tecnología y te gusta estar al día con las últimas novedades. 
                 Eres una persona que busca la perfección en su trabajo y te gusta aprender cosas nuevas. Eres muy creativo y te gusta encontrar soluciones a los problemas. 

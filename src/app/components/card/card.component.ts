@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Analisys } from '../../interfaces/analisys';
+import { AnalysisDTO } from '../../interfaces/analisys';
 import { examples } from '../../data/examples';
 
 @Component({
@@ -11,7 +11,7 @@ import { examples } from '../../data/examples';
 })
 export class CardComponent {
 
-  @Input() analisys: Analisys = {
+  @Input() analisys: AnalysisDTO = {
     description: '',
     mbti: '',
     username: '',

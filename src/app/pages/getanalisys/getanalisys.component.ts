@@ -3,7 +3,8 @@ import { CardComponent } from "../../components/card/card.component";
 import { examples } from '../../data/examples';
 import { ApiService } from '../../services/api.service';
 import { catchError, map, tap } from 'rxjs';
-import { Analisys } from '../../interfaces/analisys';
+import { AnalysisDTO } from '../../interfaces/analisys';
+import { SupabaseService } from '../../services/supabase.service';
 
 @Component({
   selector: 'app-getanalisys',
@@ -22,7 +23,7 @@ export class GetanalisysComponent {
 
   loading = false;
 
-  constructor(private apiService: ApiService) {
+  constructor(private apiService: ApiService,private supaService:SupabaseService) {
   }
 
   getAnalysis(){
@@ -36,7 +37,7 @@ export class GetanalisysComponent {
     btnreq.classList.add('disabled');
 
     this.apiService.getAnalisys(username).pipe(
-      map((analisys:Analisys) => {
+      map((analisys:AnalysisDTO) => {
         this.analisys = analisys;
         this.loading = false;
         btnreq.disabled = false;
@@ -50,5 +51,11 @@ export class GetanalisysComponent {
     ).subscribe();
 
     
+  }
+
+  saveAnalysis(){
+    this.supaService.savaAnalysis(this.analisys).then(res=>{
+      console.log(res);
+    });
   }
 }
