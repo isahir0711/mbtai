@@ -10,4 +10,5 @@ export const routes: Routes = [
 
     {path: 'GetAnalisys', component: GetanalisysComponent,canActivate: [authGuard]},
     {path: 'Login', component: LoginComponent},
+    {path:'**',redirectTo:''}
 ];
