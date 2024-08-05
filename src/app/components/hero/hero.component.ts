@@ -3,6 +3,7 @@ import { CardComponent } from "../card/card.component";
 import { RouterLink } from '@angular/router';
 import { SupabaseService } from '../../services/supabase.service';
 import { AnalysisDTO } from '../../interfaces/analisys';
+import { examples } from '../../data/examples';
 
 @Component({
   selector: 'app-hero',
@@ -12,7 +13,7 @@ import { AnalysisDTO } from '../../interfaces/analisys';
   styleUrl: './hero.component.css'
 })
 export class HeroComponent {
-  examples:AnalysisDTO[] = [];
+  examples:AnalysisDTO[] = examples;
 
   /**
    *
@@ -21,30 +22,10 @@ export class HeroComponent {
 
   }
 
-  getLatest(){
-    this.supaSerivce.getLatestAnalysis().then(res=>{
-      for (let index = 0; index < res.length; index++) {
-        const element = res[index];
-        let temp = {
-          description: element.description,
-          mbti: element.mbti,
-          username: element.username,
-          profilePicUrl: ''
-        }
-        this.examples.push(temp);
-      };
-    });
-  }
-
   ngAfterViewInit(): void {
-    this.getLatest();
-  }
-
-  ngOnInit(): void {
     if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       this.addAnimation();
     }
-    
   }
 
   addAnimation() {

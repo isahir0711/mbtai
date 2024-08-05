@@ -2,16 +2,18 @@
     <div class="action">
         <input id="username" class="userinput" type="text" placeholder="ingresa tu usuario..">
         <button id="btnreq" (click)="getAnalysis()" class="analyze-btn">Analizar</button>
+        @if(loading) {
+            <app-card-skeleton></app-card-skeleton>
+            
+        }
+
+        @if (analisys) {
+            <div class="res">
+                <app-card [analisys]="analisys"></app-card>
+            </div>
+        }
+        @if(error){
+            <h2>woops algo salio mal</h2>
+        }
     </div>
-
-    @if (analisys) {
-        <div class="res">
-            <app-card [analisys]="analisys"></app-card>
-        <button (click)="saveAnalysis()" class="btn">Guardar..</button>
-        </div>
-    }
-
-    @if(error){
-        <h2>woops algo salio mal</h2>
-    }
 </section>

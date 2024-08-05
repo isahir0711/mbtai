@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    margin: 0 auto;
     padding: 16px;
     height: 100vh;
     gap: 2rem;
@@ -13,9 +13,15 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 0 auto;
     max-width: 450px;
     gap: .5rem;
     width: 100%;
+}
+
+.loading{
+    display: flex;
+    flex-direction: column;
 }
 
 .userinput{

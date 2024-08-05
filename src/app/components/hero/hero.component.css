@@ -78,7 +78,7 @@
             white 20%,
             white 80%,
             transparent);
-    mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+    mask: linear-gradient(90deg, transparent, white 10%, white 80%, transparent);
 }
 
 
@@ -97,7 +97,7 @@
 }
 
 .scroller[data-speed="fast"] {
-    --_animation-duration: 20s;
+    --_animation-duration: 35s;
 }
 
 .scroller[data-speed="slow"] {

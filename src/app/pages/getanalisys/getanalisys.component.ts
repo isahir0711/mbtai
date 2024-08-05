@@ -5,11 +5,12 @@ import { ApiService } from '../../services/api.service';
 import { catchError, map, tap } from 'rxjs';
 import { AnalysisDTO } from '../../interfaces/analisys';
 import { SupabaseService } from '../../services/supabase.service';
+import { CardSkeletonComponent } from "../../components/card-skeleton/card-skeleton.component";
 
 @Component({
   selector: 'app-getanalisys',
   standalone: true,
-  imports: [CardComponent],
+  imports: [CardComponent, CardSkeletonComponent],
   templateUrl: './getanalisys.component.html',
   styleUrl: './getanalisys.component.css'
 })
@@ -17,7 +18,7 @@ export class GetanalisysComponent {
 
   
 
-  analisys:any;
+  analisys:any ;
 
   error = false;
 
@@ -44,7 +45,9 @@ export class GetanalisysComponent {
         btnreq.classList.remove('disabled');
       }),
       catchError(err =>{
-        console.log(err);
+        this.loading = false;
+        btnreq.disabled = false;
+        btnreq.classList.remove('disabled');
         this.error = true;
         throw err;
       })  
@@ -53,9 +56,4 @@ export class GetanalisysComponent {
     
   }
 
-  saveAnalysis(){
-    this.supaService.savaAnalysis(this.analisys).then(res=>{
-      console.log(res);
-    });
-  }
 }

@@ -44,39 +44,5 @@ export class SupabaseService {
     return this.supabaseClient.auth.signOut();
   }
 
-  async getLatestAnalysis(): Promise<AnalysisSupa[]> {
-    const { data } = await this.supabaseClient
-      .from('analysis')
-      .select()
-      .returns<AnalysisSupa[]>();
 
-
-    if (!data) {
-      return [];
-    }
-
-    return data;
-  }
-
-  async savaAnalysis(analysis: AnalysisDTO) {
-    let userid;
-    await this.supabaseClient.auth.getSession().then((root) => {
-      userid = root.data.session?.user.id;
-    });
-    if(userid === undefined){
-      return;
-    }
-    
-    const supaAnalysis: AnalysisSupa = {
-      description: analysis.description,
-      mbti: analysis.mbti,
-      username: analysis.username,
-      user_id: userid,
-      created_at: new Date()
-    }
-
-    const {error} = await this.supabaseClient.from('analysis')
-    .insert(supaAnalysis);
-
-  }
 }
